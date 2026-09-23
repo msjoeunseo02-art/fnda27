@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>고래잇 × 이마트 보물찾기 - 프리미엄 홍보 실행 기획서</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#FFD700',
+                            amber: '#F59E0B',
+                            yellow: '#FFB81C',
+                            navy: '#0B132B',
+                            darkNavy: '#070C1E',
+                            cardBg: 'rgba(15, 23, 42, 0.65)',
+                            glassBorder: 'rgba(255, 255, 255, 0.08)'
+                        },
+                        meat: '#EF4444',
+                        veggie: '#10B981',
+                        seafood: '#0EA5E9'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Noto Sans KR', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', 'Noto Sans KR', sans-serif;
+            background-color: #070C1E;
+            color: #E2E8F0;
+        }
+
+        .glass-card {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card-hover:hover {
+            border-color: rgba(255, 215, 0, 0.3);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5), 0 0 20px 0 rgba(255, 215, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF5C0 0%, #FFD700 50%, #F59E0B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-gradient-bg {
+            background: linear-gradient(135deg, #FFD700 0%, #F59E0B 100%);
+        }
+
+        .gold-glow {
+            box-shadow: 0 0 35px -5px rgba(255, 215, 0, 0.25);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #0F172A;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .animate-float {
+            animation: floatSlow 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="selection:bg-amber-400 selection:text-slate-950 min-h-screen flex flex-col custom-scrollbar overflow-x-hidden">
+
+    <header class="sticky top-0 z-50 bg-[#070C1E]/80 backdrop-blur-xl border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="bg-gradient-to-r from-amber-400 to-yellow-500 p-0.5 rounded-xl shadow-lg shadow-amber-500/10">
+                        <div class="bg-brand-navy px-3 py-1.5 rounded-[10px] flex items-center gap-2">
+                            <i class="fa-solid fa-crown text-amber-400 text-sm"></i>
+                            <span class="text-xs font-black tracking-wider text-white">고래잇 × e-mart</span>
+                        </div>
+                    </div>
+                    <span class="text-sm font-medium text-slate-400 hidden sm:inline-block">|</span>
+                    <h1 class="text-sm font-semibold tracking-wide text-slate-200 hidden sm:block">홍보 실행 기획서</h1>
+                </div>
+
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 text-xs font-medium text-slate-300">
+                    <a href="#overview" class="px-3.5 py-2 rounded-xl hover:bg-white/5 hover:text-amber-400 transition">전략 개요</a>
+                    <a href="#assets" class="px-3.5 py-2 rounded-xl hover:bg-white/5 hover:text-amber-400 transition">홍보물 3종</a>
+                    <a href="#quest-game" class="px-3.5 py-2 rounded-xl hover:bg-white/5 hover:text-amber-400 transition">퀘스트 시뮬레이터</a>
+                    <a href="#checklist" class="px-3.5 py-2 rounded-xl hover:bg-white/5 hover:text-amber-400 transition">실행 로드맵</a>
+                    <a href="#kpi" class="px-3.5 py-2 rounded-xl hover:bg-white/5 hover:text-amber-400 transition">KPI &amp; 성과목표</a>
+                </nav>
+
+                <!-- Quick Action Button -->
+                <div>
+                    <a href="#quest-game" class="gold-gradient-bg text-slate-950 hover:brightness-110 font-bold px-4 py-2.5 rounded-xl text-xs shadow-lg shadow-amber-500/20 transition transform active:scale-95 flex items-center gap-2">
+                        <i class="fa-solid fa-gamepad"></i>
+                        <span>체험 시뮬레이터</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative pt-16 pb-20 lg:pt-28 lg:pb-32 overflow-hidden border-b border-white/5">
+        <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-tr from-amber-500/10 via-yellow-500/5 to-transparent rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-blue-600/5 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-8">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md">
+                        <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                        <span class="text-xs font-semibold text-amber-300 tracking-wide">이마트 오프라인 매장 체류시간 &amp; 구매전환 극대화</span>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h2 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.15] tracking-tight text-white">
+                            일상의 장보기를<br/>
+                            <span class="gold-gradient-text">
+                                '식재료 탐험 보물찾기'
+                            </span>로
+                        </h2>
+                        <p class="text-slate-400 text-sm sm:text-base leading-relaxed max-w-2xl font-light">
+                            다문화 가정과 미취학 아동(4~7세)을 핵심 타깃으로 픽토그램과 RPG 퀘스트 요소를 결합하여 언어 장벽을 완화하고, 단순한 쇼핑 동선을 매혹적인 모험 경험으로 전환합니다.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-4 pt-2">
+                        <div class="glass-card p-4 rounded-2xl border border-white/5 text-center">
+                            <p class="text-[11px] font-medium text-slate-400 uppercase tracking-wider">온라인 Target</p>
+                            <p class="text-xl sm:text-2xl font-black text-white mt-1">150,000<span class="text-xs font-normal text-slate-400">회</span></p>
+                        </div>
+                        <div class="glass-card p-4 rounded-2xl border border-white/5 text-center">
+                            <p class="text-[11px] font-medium text-slate-400 uppercase tracking-wider">숏폼 목표 조회수</p>
+                            <p class="text-xl sm:text-2xl font-black text-amber-400 mt-1">300,000<span class="text-xs font-normal text-slate-400">회</span></p>
+                        </div>
+                        <div class="glass-card p-4 rounded-2xl border border-white/5 text-center">
+                            <p class="text-[11px] font-medium text-slate-400 uppercase tracking-wider">평균 체류시간</p>
+                            <p class="text-xl sm:text-2xl font-black text-emerald-400 mt-1">42분 ➔ 68분</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5">
+                    <div class="relative mx-auto max-w-md">
+                        <div class="absolute -inset-0.5 bg-gradient-to-r from-amber-500/30 to-yellow-600/30 rounded-3xl blur-xl opacity-75 animate-float"></div>
+                        
+                        <div class="relative glass-card p-7 rounded-3xl border border-white/10 space-y-6">
+                            <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+                                    <span class="text-xs font-bold uppercase tracking-wider text-amber-300">Campaign Concept</span>
+                                </div>
+                                <span class="text-[10px] text-slate-400 font-mono">2026 PROMOTION</span>
+                            </div>
+
+                            <div class="text-center space-y-3 py-2">
+                                <div class="w-16 h-16 bg-gradient-to-br from-amber-400 to-yellow-600 text-slate-950 rounded-2xl flex items-center justify-center mx-auto text-2xl font-black shadow-xl shadow-amber-500/20">
+                                    <i class="fa-solid fa-map-location-dot"></i>
+                                </div>
+                                <h3 class="text-xl font-extrabold text-white">"이마트에서 시작하는 보물찾기!"</h3>
+                                <p class="text-xs text-slate-400 leading-relaxed px-4">
+                                    지도를 전달받고, 색깔을 매칭하고, 스탬프를 찍으며 요리의 즐거움을 수집하세요.
+                                </p>
+                            </div>
+
+                            <div class="grid grid-cols-3 gap-2.5 text-xs pt-2">
+                                <div class="bg-meat/10 border border-meat/20 p-2.5 rounded-xl text-center space-y-1">
+                                    <i class="fa-solid fa-drumstick-bite text-meat text-base"></i>
+                                    <p class="font-bold text-slate-200 text-[11px]">육류 코너</p>
+                                </div>
+                                <div class="bg-veggie/10 border border-veggie/20 p-2.5 rounded-xl text-center space-y-1">
+                                    <i class="fa-solid fa-carrot text-veggie text-base"></i>
+                                    <p class="font-bold text-slate-200 text-[11px]">채소 코너</p>
+                                </div>
+                                <div class="bg-seafood/10 border border-seafood/20 p-2.5 rounded-xl text-center space-y-1">
+                                    <i class="fa-solid fa-fish text-seafood text-base"></i>
+                                    <p class="font-bold text-slate-200 text-[11px]">수산물 코너</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="overview" class="py-20 relative border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-xs font-bold uppercase tracking-widest text-amber-400">Section 01</span>
+                <h2 class="text-3xl font-extrabold text-white">캠페인 핵심 전략 &amp; 브랜딩 가이드</h2>
+                <div class="w-12 h-1 gold-gradient-bg mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div class="glass-card glass-card-hover p-7 rounded-2xl border border-white/5 space-y-4">
+                    <div class="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-amber-400 text-xl font-bold shadow-inner">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">핵심 타깃 (Target Segment)</h3>
+                    <ul class="space-y-3 text-xs text-slate-300 leading-relaxed">
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-circle-check text-amber-400 mt-0.5 text-xs"></i>
+                            <span><strong>메인 타깃:</strong> 언어장벽 해소가 필요한 다문화 가정 주부</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-circle-check text-amber-400 mt-0.5 text-xs"></i>
+                            <span><strong>핵심 유저:</strong> 호기심 많고 활동적인 4~7세 미취학 아동</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="glass-card glass-card-hover p-7 rounded-2xl border border-white/5 space-y-4">
+                    <div class="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-amber-400 text-xl font-bold shadow-inner">
+                        <i class="fa-solid fa-gem"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">3대 핵심 가치 (Core Values)</h3>
+                    <ul class="space-y-3 text-xs text-slate-300 leading-relaxed">
+                        <li class="flex items-start gap-2">
+                            <span class="font-bold text-amber-300">Accessibility:</span> 픽토그램 기반 다국어 지원
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="font-bold text-amber-300">Gamification:</span> 장보기를 판타지 RPG 퀘스트화
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="font-bold text-amber-300">Utility:</span> 실속 있는 식재료 큐레이션 및 쿠폰
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="glass-card glass-card-hover p-7 rounded-2xl border border-white/5 space-y-4">
+                    <div class="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-amber-400 text-xl font-bold shadow-inner">
+                        <i class="fa-solid fa-palette"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">비주얼 컬러 아이덴티티</h3>
+                    <div class="grid grid-cols-2 gap-2 text-xs">
+                        <div class="p-2.5 rounded-xl bg-[#FFB81C]/10 border border-[#FFB81C]/30 text-amber-300 font-bold flex items-center justify-between">
+                            <span>이마트 옐로우</span>
+                            <span class="text-[10px] font-mono text-slate-400">#FFB81C</span>
+                        </div>
+                        <div class="p-2.5 rounded-xl bg-[#112A46] border border-slate-700 text-slate-200 font-bold flex items-center justify-between">
+                            <span>이마트 네이비</span>
+                            <span class="text-[10px] font-mono text-slate-400">#112A46</span>
+                        </div>
+                        <div class="p-2.5 rounded-xl bg-meat/10 border border-meat/30 text-red-300 font-bold flex items-center justify-between">
+                            <span>육류 섹션</span>
+                            <i class="fa-solid fa-drumstick-bite text-meat"></i>
+                        </div>
+                        <div class="p-2.5 rounded-xl bg-veggie/10 border border-veggie/30 text-emerald-300 font-bold flex items-center justify-between">
+                            <span>채소 섹션</span>
+                            <i class="fa-solid fa-carrot text-veggie"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl border border-white/10 space-y-6">
+                <h3 class="text-base font-extrabold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-network-wired text-amber-400"></i>
+                    <span>홍보 운영 3단계 고객 여정 Funnel</span>
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-white/5 border border-white/5 p-5 rounded-2xl relative">
+                        <span class="text-[10px] font-mono text-amber-400 font-bold tracking-widest block mb-1">STAGE 01</span>
+                        <h4 class="font-bold text-white text-sm">온라인 호기심 유발 (SNS)</h4>
+                        <p class="text-xs text-slate-400 mt-2 leading-relaxed">숏폼 및 카드뉴스를 통한 주간 레시피 퀘스트 공개 및 사전 기대감 형성</p>
+                    </div>
+                    <div class="bg-white/5 border border-white/5 p-5 rounded-2xl relative">
+                        <span class="text-[10px] font-mono text-amber-400 font-bold tracking-widest block mb-1">STAGE 02</span>
+                        <h4 class="font-bold text-white text-sm">매장 현장 유입 &amp; 보물 지도</h4>
+                        <p class="text-xs text-slate-400 mt-2 leading-relaxed">입구 3초 포스터 안내와 보물지도를 들고 매장 코너 탐험 시작</p>
+                    </div>
+                    <div class="bg-white/5 border border-white/5 p-5 rounded-2xl relative">
+                        <span class="text-[10px] font-mono text-amber-400 font-bold tracking-widest block mb-1">STAGE 03</span>
+                        <h4 class="font-bold text-white text-sm">리워드 &amp; 재방문 락인</h4>
+                        <p class="text-xs text-slate-400 mt-2 leading-relaxed">스탬프 리워드 수령, SNS 인증샷 이벤트 및 차주 퀘스트 예고</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="assets" class="py-20 relative border-b border-white/5 bg-slate-950/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+                <span class="text-xs font-bold uppercase tracking-widest text-amber-400">Section 02</span>
+                <h2 class="text-3xl font-extrabold text-white">홍보물 3종 시안 &amp; 연출 컨셉</h2>
+                <p class="text-xs text-slate-400">각 매체별 특성에 맞춘 비주얼 가이드와 스토리 구조를 확인해보세요.</p>
+            </div>
+
+            <!-- Tab Buttons Header -->
+            <div class="flex justify-center mb-10">
+                <div class="glass-card p-1.5 rounded-2xl border border-white/10 inline-flex space-x-1">
+                    <button onclick="switchTab('cardnews')" id="tab-btn-cardnews" class="tab-btn active gold-gradient-bg text-slate-950 font-bold px-6 py-2.5 rounded-xl text-xs transition shadow-lg flex items-center gap-2">
+                        <i class="fa-solid fa-images"></i>
+                        <span>① Card News (SNS)</span>
+                    </button>
+                    <button onclick="switchTab('poster')" id="tab-btn-poster" class="tab-btn text-slate-400 hover:text-white font-medium px-6 py-2.5 rounded-xl text-xs transition flex items-center gap-2">
+                        <i class="fa-solid fa-map"></i>
+                        <span>② In-Store Poster</span>
+                    </button>
+                    <button onclick="switchTab('shorts')" id="tab-btn-shorts" class="tab-btn text-slate-400 hover:text-white font-medium px-6 py-2.5 rounded-xl text-xs transition flex items-center gap-2">
+                        <i class="fa-solid fa-circle-play"></i>
+                        <span>③ RPG Shorts</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- TAB 1: Card News -->
+            <div id="tab-cardnews" class="tab-content block">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center glass-card p-8 rounded-3xl border border-white/10">
+                    <div class="lg:col-span-6 space-y-5">
+                        <div class="inline-block bg-amber-500/10 border border-amber-500/20 text-amber-300 font-semibold text-[11px] px-3 py-1 rounded-full">
+                            Instagram Carousel &amp; Mom Cafe Seeding
+                        </div>
+                        <h3 class="text-2xl font-extrabold text-white leading-tight">6컷 캐릭터 스토리텔링 카드뉴스</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            다문화 가정 부모와 육아맘에게 '장보기가 놀이가 되는 과정'을 직관적인 커스텀 아트웍으로 소개하며, 마지막 컷의 차주 예고로 재방문을 지속 자극합니다.
+                        </p>
+
+                        <div class="space-y-2 border-l-2 border-amber-400 pl-4 py-1 my-4">
+                            <p class="text-[11px] font-bold text-amber-300 uppercase tracking-wider">Storyline Outline</p>
+                            <div class="text-xs text-slate-300 space-y-1.5 font-light">
+                                <p><strong class="text-white">1컷:</strong> 매장 도착 및 귀여운 캐릭터의 보물지도 발견</p>
+                                <p><strong class="text-white">2컷:</strong> 안내 데스크에서 고래잇 전용 지도 획득</p>
+                                <p><strong class="text-white">3컷:</strong> 소고기/불고기 재료 코너 컬러 매칭 탐색</p>
+                                <p><strong class="text-white">4컷:</strong> 아이와 함께 도장 쿵! 미션 완수</p>
+                                <p><strong class="text-white">5컷:</strong> 리워드(한정판 키링·스티커·쿠폰) 수령</p>
+                                <p><strong class="text-white">6컷:</strong> "다음 주 불고기 파티 퀘스트 예고! Coming Soon"</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white/5 p-4 rounded-xl border border-white/5 text-xs text-slate-300 flex items-center gap-3">
+                            <i class="fa-solid fa-globe text-amber-400 text-lg"></i>
+                            <div>
+                                <p class="font-bold text-white text-xs">다국어 캡션 링크 제공</p>
+                                <p class="text-[11px] text-slate-400">영어, 베트남어, 중국어 번역 페이지 QR 코드 연결 지원</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-6 flex justify-center">
+                        <div class="w-full max-w-xs bg-slate-900 p-4 rounded-[36px] shadow-2xl border border-slate-700">
+                            <div class="bg-slate-950 rounded-[24px] p-4 text-xs space-y-3">
+                                <div class="flex justify-between items-center text-[11px] text-slate-400 border-b border-white/5 pb-2">
+                                    <span class="font-bold text-amber-400">Instagram Carousel</span>
+                                    <i class="fa-regular fa-bookmark"></i>
+                                </div>
+                                <div class="space-y-2 text-center py-2">
+                                    <span class="bg-amber-400/20 text-amber-300 text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-amber-400/30">CUT 1~6 FLOW</span>
+                                    <h4 class="font-black text-white text-sm">고래잇 보물찾기 퀘스트</h4>
+                                    <div class="bg-white/5 p-3 rounded-xl border border-white/5 text-left space-y-2.5 text-[11px]">
+                                        <div class="flex items-center gap-2.5">
+                                            <div class="w-7 h-7 rounded-lg bg-amber-400/20 text-amber-400 flex items-center justify-center font-bold">1</div>
+                                            <div>
+                                                <p class="font-bold text-white">보물지도 수령</p>
+                                                <p class="text-[10px] text-slate-400">안내데스크 무료 배포</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center gap-2.5">
+                                            <div class="w-7 h-7 rounded-lg bg-meat/20 text-meat flex items-center justify-center font-bold">2</div>
+                                            <div>
+                                                <p class="font-bold text-white">소고기/채소 탐색</p>
+                                                <p class="text-[10px] text-slate-400">컬러존 매칭 식재료 찾기</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center gap-2.5">
+                                            <div class="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">3</div>
+                                            <div>
+                                                <p class="font-bold text-white">스탬프 &amp; 키링 획득</p>
+                                                <p class="text-[10px] text-slate-400">안내 데스크 교환</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="bg-gradient-to-r from-amber-500/20 to-yellow-500/20 border border-amber-500/30 text-amber-300 p-2 rounded-xl text-center font-bold text-[11px]">
+                                        다음 주 메뉴 실루엣: 커밍순! ❓
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: Poster -->
+            <div id="tab-poster" class="tab-content hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center glass-card p-8 rounded-3xl border border-white/10">
+                    <div class="lg:col-span-6 space-y-5">
+                        <div class="inline-block bg-blue-500/10 border border-blue-500/20 text-blue-300 font-semibold text-[11px] px-3 py-1 rounded-full">
+                            In-Store Display (A1/B2 Format)
+                        </div>
+                        <h3 class="text-2xl font-extrabold text-white leading-tight">매장 입구 3초 직관 이해 포스터</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            복잡한 설명을 배제하고 글로벌 공통 언어인 **컬러 코드와 픽토그램**으로 구성하여, 매장 진입 시 3초 만에 참여 규칙을 직관 파악할 수 있습니다.
+                        </p>
+
+                        <div class="grid grid-cols-2 gap-3 pt-2">
+                            <div class="bg-white/5 p-3.5 rounded-xl border border-white/5 text-center">
+                                <span class="w-6 h-6 bg-amber-400 text-slate-950 text-xs font-black rounded-full inline-flex items-center justify-center mb-1">1</span>
+                                <p class="font-bold text-white text-xs">지도 획득</p>
+                                <p class="text-[10px] text-slate-400">입구 안내데스크</p>
+                            </div>
+                            <div class="bg-white/5 p-3.5 rounded-xl border border-white/5 text-center">
+                                <span class="w-6 h-6 bg-amber-400 text-slate-950 text-xs font-black rounded-full inline-flex items-center justify-center mb-1">2</span>
+                                <p class="font-bold text-white text-xs">컬러 매칭</p>
+                                <p class="text-[10px] text-slate-400">지도의 동일 섹션으로</p>
+                            </div>
+                            <div class="bg-white/5 p-3.5 rounded-xl border border-white/5 text-center">
+                                <span class="w-6 h-6 bg-amber-400 text-slate-950 text-xs font-black rounded-full inline-flex items-center justify-center mb-1">3</span>
+                                <p class="font-bold text-white text-xs">재료 담기</p>
+                                <p class="text-[10px] text-slate-400">보물 식재료 카트 담기</p>
+                            </div>
+                            <div class="bg-white/5 p-3.5 rounded-xl border border-white/5 text-center">
+                                <span class="w-6 h-6 bg-amber-400 text-slate-950 text-xs font-black rounded-full inline-flex items-center justify-center mb-1">4</span>
+                                <p class="font-bold text-white text-xs">리워드 GET</p>
+                                <p class="text-[10px] text-slate-400">스탬프 찍고 선물 수령</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-6 flex justify-center">
+                        <div class="w-full max-w-sm glass-card p-6 rounded-3xl border border-amber-500/30 space-y-4 text-center">
+                            <span class="bg-amber-400 text-slate-950 text-[10px] font-black px-3 py-1 rounded-full uppercase">Main Poster Visual</span>
+                            <h4 class="text-xl font-extrabold text-white leading-tight">
+                                이마트에서 시작하는<br/>
+                                <span class="gold-gradient-text text-2xl">보물찾기 모험</span>
+                            </h4>
+                            <p class="text-[11px] text-slate-300 bg-white/5 py-2 px-3 rounded-xl border border-white/5">
+                                지도를 받고, 색깔을 찾고, 도장을 찍으세요!
+                            </p>
+                            <div class="flex justify-center gap-2 pt-2">
+                                <span class="bg-meat/20 text-meat border border-meat/30 text-[11px] font-bold px-3 py-1.5 rounded-xl">🥩 육류</span>
+                                <span class="bg-veggie/20 text-veggie border border-veggie/30 text-[11px] font-bold px-3 py-1.5 rounded-xl">🥬 채소</span>
+                                <span class="bg-seafood/20 text-seafood border border-seafood/30 text-[11px] font-bold px-3 py-1.5 rounded-xl">🐟 수산</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 3: Shorts (Added 9:16 Video Player alongside Mock UI) -->
+            <div id="tab-shorts" class="tab-content hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center glass-card p-8 rounded-3xl border border-white/10">
+                    <div class="lg:col-span-5 space-y-5">
+                        <div class="inline-block bg-purple-500/10 border border-purple-500/20 text-purple-300 font-semibold text-[11px] px-3 py-1 rounded-full">
+                            YouTube Shorts / Reels / TikTok (30-40초)
+                        </div>
+                        <h3 class="text-2xl font-extrabold text-white leading-tight">1인칭 RPG POV 포맷 숏폼 영상</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            아이의 시선에서 매장을 RPG 모험 맵으로 다이내믹하게 연출하여 시각적 몰입감을 극대화합니다. 오른쪽 화면에서 실제 제작된 영상 샘플을 확인하실 수 있습니다.
+                        </p>
+
+                        <div class="bg-white/5 p-4 rounded-2xl border border-white/5 space-y-2 text-xs">
+                            <p class="font-bold text-amber-300 text-xs">🎮 주요 UI 레이아웃 요소</p>
+                            <ul class="space-y-1.5 text-slate-300 text-[11px]">
+                                <li>• 캐릭터 스탯창 (Lv.12 Pui / HP / MP 오버레이)</li>
+                                <li>• [주간 퀘스트: 불고기 필수 재료 4종을 찾아라!]</li>
+                                <li>• 미니 레이더 맵 &amp; 카트 스피드 부스터 효과</li>
+                                <li>• '이번 주말 이마트 보물찾기 갈 사람!' CTA 버튼</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: UI Wireframe Mockup + 9:16 Actual Video Player -->
+                    <div class="lg:col-span-7 flex flex-col sm:flex-row items-center justify-center gap-6">
+                        <!-- 1. UI Design Wireframe Mockup -->
+                        <div class="relative w-56 sm:w-60 h-[380px] sm:h-[400px] bg-slate-950 rounded-[32px] p-3 shadow-2xl border border-slate-700 flex flex-col justify-between overflow-hidden shrink-0">
+                            <div class="absolute inset-0 bg-gradient-to-b from-amber-500/10 via-transparent to-slate-950 pointer-events-none"></div>
+                            
+                            <!-- RPG Overlay -->
+                            <div class="relative z-10 space-y-2">
+                                <div class="flex items-center justify-between text-[10px]">
+                                    <div class="bg-slate-900/90 px-2.5 py-1 rounded-full border border-white/10 flex items-center gap-1.5">
+                                        <span class="text-amber-400 font-bold">Lv.12 Pui</span>
+                                        <div class="w-8 h-1 bg-red-500 rounded-full"></div>
+                                    </div>
+                                    <i class="fa-solid fa-compass text-amber-400 text-xs"></i>
+                                </div>
+
+                                <div class="bg-amber-500/20 border border-amber-400/40 p-2.5 rounded-xl text-center backdrop-blur-md">
+                                    <p class="text-amber-300 font-extrabold text-xs">⚔️ Quest Accepted</p>
+                                    <p class="text-[11px] font-bold text-white mt-0.5">[불고기 보물 재료 4개]</p>
+                                </div>
+                            </div>
+
+                            <div class="relative z-10 text-center space-y-1">
+                                <div class="text-3xl text-amber-400">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </div>
+                                <span class="bg-red-500 text-white text-[9px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider">Speed Boost</span>
+                            </div>
+
+                            <div class="relative z-10">
+                                <button class="w-full gold-gradient-bg text-slate-950 font-black text-xs py-2.5 rounded-xl shadow-lg">
+                                    이번 주말 보물찾기 출발! 👉
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 2. Attached 9:16 Video Player Node for GitHub Video Asset -->
+                        <div class="relative w-56 sm:w-60 aspect-[9/16] bg-slate-950 rounded-[32px] p-2.5 border-2 border-amber-500/40 shadow-2xl shadow-amber-500/10 flex flex-col items-center justify-center shrink-0 overflow-hidden group">
+                            <!-- Header Status Bar Overlay -->
+                            <div class="absolute top-0 inset-x-0 h-7 bg-gradient-to-b from-black/80 to-transparent z-20 flex items-center justify-between px-4 text-[9px] text-white font-mono pointer-events-none">
+                                <span>9:16 SHORTS</span>
+                                <span class="flex items-center gap-1"><i class="fa-solid fa-circle text-red-500 text-[6px] animate-pulse"></i>동영상 5조.mp4</span>
+                            </div>
+
+                            <!-- HTML5 Video Tag (Supports relative path & encoded path for GitHub Pages) -->
+                            <video class="w-full h-full object-cover rounded-[24px] shadow-inner" controls autoplay muted loop playsinline poster="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' fill='%230F172A'><text x='50%' y='50%' font-size='12' fill='%2394A3B8' text-anchor='middle'>동영상 로딩 중...</text></svg>">
+                                <source src="동영상 5조.mp4" type="video/mp4">
+                                <source src="동영상%205조.mp4" type="video/mp4">
+                                웹 브라우저가 동영상 재생을 지원하지 않습니다.
+                            </video>
+
+                            <!-- Badge overlay -->
+                            <div class="absolute bottom-3 left-3 right-3 bg-black/60 backdrop-blur-md px-2.5 py-1.5 rounded-xl border border-white/10 text-center pointer-events-none">
+                                <p class="text-[10px] font-bold text-amber-300 flex items-center justify-center gap-1">
+                                    <i class="fa-solid fa-play text-[8px]"></i>
+                                    <span>홍보 영상 샘플 (동영상 5조.mp4)</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="quest-game" class="py-20 relative border-b border-white/5">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+                <span class="bg-amber-400/10 border border-amber-400/20 text-amber-300 font-bold text-xs px-3.5 py-1 rounded-full uppercase tracking-wider">Interactive Simulator</span>
+                <h2 class="text-3xl font-extrabold text-white">🎮 직접 해보는 '주간 불고기 퀘스트'</h2>
+                <p class="text-xs text-slate-400">이마트 매장에서 보물 재료를 클릭하여 퀘스트를 완수해보세요.</p>
+            </div>
+
+            <div class="glass-card p-6 sm:p-10 rounded-3xl border border-amber-500/20 shadow-2xl relative overflow-hidden">
+                <div class="flex flex-col sm:flex-row items-center justify-between border-b border-white/10 pb-6 mb-8 gap-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-amber-400/10 border border-amber-400/30 text-amber-400 rounded-2xl flex items-center justify-center font-black text-2xl shadow-inner">
+                            <i class="fa-solid fa-scroll"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-extrabold text-base text-white">[주간 퀘스트] 불고기 보물 재료 4개 담기</h3>
+                            <p class="text-xs text-slate-400">필수 재료 4가지를 모두 선택하면 미션 완수 스탬프를 획득합니다!</p>
+                        </div>
+                    </div>
+                    <div class="bg-slate-900/90 border border-white/10 px-5 py-2.5 rounded-2xl text-center">
+                        <span class="text-[10px] text-slate-400 block uppercase font-mono">Progress</span>
+                        <span id="quest-count" class="text-2xl font-black gold-gradient-text">0 / 4</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+                    <button onclick="toggleIngredient(this, 'beef')" class="ingredient-card bg-slate-900/80 hover:bg-slate-800 border border-white/10 p-5 rounded-2xl text-center transition transform active:scale-95 space-y-2 group">
+                        <div class="text-4xl group-hover:scale-110 transition">🥩</div>
+                        <p class="font-bold text-xs text-slate-200">소고기 (불고기용)</p>
+                        <span class="inline-block bg-meat/20 border border-meat/30 text-meat text-[10px] font-bold px-2.5 py-0.5 rounded-full">육류 코너</span>
+                    </button>
+
+                    <button onclick="toggleIngredient(this, 'onion')" class="ingredient-card bg-slate-900/80 hover:bg-slate-800 border border-white/10 p-5 rounded-2xl text-center transition transform active:scale-95 space-y-2 group">
+                        <div class="text-4xl group-hover:scale-110 transition">🧅</div>
+                        <p class="font-bold text-xs text-slate-200">양파 &amp; 파</p>
+                        <span class="inline-block bg-veggie/20 border border-veggie/30 text-veggie text-[10px] font-bold px-2.5 py-0.5 rounded-full">채소 코너</span>
+                    </button>
+
+                    <button onclick="toggleIngredient(this, 'mushroom')" class="ingredient-card bg-slate-900/80 hover:bg-slate-800 border border-white/10 p-5 rounded-2xl text-center transition transform active:scale-95 space-y-2 group">
+                        <div class="text-4xl group-hover:scale-110 transition">🍄</div>
+                        <p class="font-bold text-xs text-slate-200">팽이버섯</p>
+                        <span class="inline-block bg-veggie/20 border border-veggie/30 text-veggie text-[10px] font-bold px-2.5 py-0.5 rounded-full">채소 코너</span>
+                    </button>
+
+                    <button onclick="toggleIngredient(this, 'sauce')" class="ingredient-card bg-slate-900/80 hover:bg-slate-800 border border-white/10 p-5 rounded-2xl text-center transition transform active:scale-95 space-y-2 group">
+                        <div class="text-4xl group-hover:scale-110 transition">🍶</div>
+                        <p class="font-bold text-xs text-slate-200">불고기 양념소스</p>
+                        <span class="inline-block bg-amber-500/20 border border-amber-500/30 text-amber-300 text-[10px] font-bold px-2.5 py-0.5 rounded-full">양념 코너</span>
+                    </button>
+                </div>
+
+                <div id="reward-box" class="bg-gradient-to-r from-amber-500/20 via-yellow-500/10 to-amber-500/20 border border-amber-400/40 p-6 rounded-2xl text-center space-y-3 hidden backdrop-blur-md">
+                    <div class="w-14 h-14 gold-gradient-bg text-slate-950 rounded-2xl flex items-center justify-center text-2xl mx-auto shadow-lg animate-bounce">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <h4 class="text-xl font-extrabold text-white">🎉 퀘스트 클리어! 스탬프 획득 성공!</h4>
+                    <p class="text-xs text-slate-300 max-w-md mx-auto">
+                        안내 데스크에서 스탬프를 교환하고 <span class="text-amber-300 font-bold">[고래잇 한정판 키링 + 스티커 + 할인 쿠폰]</span>을 수령하세요!
+                    </p>
+                    <button onclick="resetQuest()" class="mt-2 bg-white/10 hover:bg-white/20 text-white text-xs font-semibold px-4 py-2 rounded-xl transition border border-white/10">
+                        다시 체험하기
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="checklist" class="py-20 relative border-b border-white/5 bg-slate-950/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+                <span class="text-xs font-bold uppercase tracking-widest text-amber-400">Section 03</span>
+                <h2 class="text-3xl font-extrabold text-white">오픈 시점 단계별 실행 로드맵</h2>
+                <p class="text-xs text-slate-400">D-14부터 D+1까지의 점검 항목을 확인하고 진행 상황을 관리하세요.</p>
+            </div>
+
+            <div class="flex justify-center space-x-2 mb-10">
+                <button onclick="filterChecklist('all', this)" class="check-filter-btn active gold-gradient-bg text-slate-950 text-xs font-bold px-4 py-2 rounded-xl transition shadow-md">전체 보기</button>
+                <button onclick="filterChecklist('pre', this)" class="check-filter-btn glass-card text-slate-300 hover:text-white text-xs font-medium px-4 py-2 rounded-xl border border-white/5 transition">오픈 전 (D-14~D-1)</button>
+                <button onclick="filterChecklist('dday', this)" class="check-filter-btn glass-card text-slate-300 hover:text-white text-xs font-medium px-4 py-2 rounded-xl border border-white/5 transition">오픈 당일 (D-Day)</button>
+                <button onclick="filterChecklist('post', this)" class="check-filter-btn glass-card text-slate-300 hover:text-white text-xs font-medium px-4 py-2 rounded-xl border border-white/5 transition">오픈 후 (D+1~상시)</button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="check-item pre glass-card p-6 rounded-2xl border border-white/5 space-y-4">
+                    <div class="flex justify-between items-center">
+                        <span class="bg-amber-400/10 border border-amber-400/20 text-amber-300 text-[10px] font-bold px-2.5 py-1 rounded-md">D-14 ~ D-1</span>
+                        <span class="text-[11px] text-slate-400 font-semibold">VMD팀</span>
+                    </div>
+                    <h4 class="font-bold text-white text-sm">오프라인 홍보물 사전 인쇄·배포</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">A1 포스터·배너 점포 사전 출고 및 천장 네비게이션 섹션 컬러 일치 점검</p>
+                    <label class="flex items-center gap-2.5 cursor-pointer text-xs font-medium text-slate-300 pt-3 border-t border-white/5">
+                        <input type="checkbox" class="w-4 h-4 accent-amber-400 rounded bg-slate-900 border-slate-700">
+                        <span>실행 점검 완료</span>
+                    </label>
+                </div>
+
+                <div class="check-item pre glass-card p-6 rounded-2xl border border-white/5 space-y-4">
+                    <div class="flex justify-between items-center">
+                        <span class="bg-amber-400/10 border border-amber-400/20 text-amber-300 text-[10px] font-bold px-2.5 py-1 rounded-md">D-14 ~ D-1</span>
+                        <span class="text-[11px] text-slate-400 font-semibold">SNS 마케팅팀</span>
+                    </div>
+                    <h4 class="font-bold text-white text-sm">온라인 콘텐츠 사전 예약 발행</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">인스타그램/페이스북 카드뉴스 발행 및 다문화 지원센터·맘카페 사전 시딩</p>
+                    <label class="flex items-center gap-2.5 cursor-pointer text-xs font-medium text-slate-300 pt-3 border-t border-white/5">
+                        <input type="checkbox" class="w-4 h-4 accent-amber-400 rounded bg-slate-900 border-slate-700">
+                        <span>실행 점검 완료</span>
+                    </label>
+                </div>
+
+                <div class="check-item pre glass-card p-6 rounded-2xl border border-white/5 space-y-4">
+                    <div class="flex justify-between items-center">
+                        <span class="bg-amber-400/10 border border-amber-400/20 text-amber-300 text-[10px] font-bold px-2.5 py-1 rounded-md">D-14 ~ D-1</span>
+                        <span class="text-[11px] text-slate-400 font-semibold">영업운영팀</span>
+                    </div>
+                    <h4 class="font-bold text-white text-sm">현장 인력 프로모션 가이드 교육</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">안내 데스크 지도 배포 동선 숙지 및 스탬프 존 리워드 재고 점검</p>
+                    <label class="flex items-center gap-2.5 cursor-pointer text-xs font-medium text-slate-300 pt-3 border-t border-white/5">
+                        <input type="checkbox" class="w-4 h-4 accent-amber-400 rounded bg-slate-900 border-slate-700">
+                        <span>실행 점검 완료</span>
+                    </label>
+                </div>
+
+                <div class="check-item dday glass-card p-6 rounded-2xl border border-white/5 space-y-4">
+                    <div class="flex justify-between items-center">
+                        <span class="bg-red-500/10 border border-red-500/20 text-red-400 text-[10px] font-bold px-2.5 py-1 rounded-md">D-Day</span>
+                        <span class="text-[11px] text-slate-400 font-semibold">디지털 광고팀</span>
+                    </div>
+                    <h4 class="font-bold text-white text-sm">숏폼 라이브 &amp; Target 부스팅</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">오전 10시 쇼츠/릴스 본편 릴리즈 및 거주 부모 타깃 Meta 광고 활성화</p>
+                    <label class="flex items-center gap-2.5 cursor-pointer text-xs font-medium text-slate-300 pt-3 border-t border-white/5">
+                        <input type="checkbox" class="w-4 h-4 accent-amber-400 rounded bg-slate-900 border-slate-700">
+                        <span>실행 점검 완료</span>
+                    </label>
+                </div>
+
+                <div class="check-item dday glass-card p-6 rounded-2xl border border-white/5 space-y-4">
+                    <div class="flex justify-between items-center">
+                        <span class="bg-red-500/10 border border-red-500/20 text-red-400 text-[10px] font-bold px-2.5 py-1 rounded-md">D-Day</span>
+                        <span class="text-[11px] text-slate-400 font-semibold">현장 마케팅팀</span>
+                    </div>
+                    <h4 class="font-bold text-white text-sm">현장 세팅 및 실시간 모니터링</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">보물지도 시간당 리필 및 현장 참여 모습을 인스타그램 스토리 업로드</p>
+                    <label class="flex items-center gap-2.5 cursor-pointer text-xs font-medium text-slate-300 pt-3 border-t border-white/5">
+                        <input type="checkbox" class="w-4 h-4 accent-amber-400 rounded bg-slate-900 border-slate-700">
+                        <span>실행 점검 완료</span>
+                    </label>
+                </div>
+
+                <div class="check-item post glass-card p-6 rounded-2xl border border-white/5 space-y-4">
+                    <div class="flex justify-between items-center">
+                        <span class="bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-bold px-2.5 py-1 rounded-md">D+1 ~ 상시</span>
+                        <span class="text-[11px] text-slate-400 font-semibold">SNS 마케팅팀</span>
+                    </div>
+                    <h4 class="font-bold text-white text-sm">UGC 해시태그 챌린지 확산</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">#고래잇보물찾기 인증샷 우수 후기 리포스팅 및 차주 기대평 이벤트 진행</p>
+                    <label class="flex items-center gap-2.5 cursor-pointer text-xs font-medium text-slate-300 pt-3 border-t border-white/5">
+                        <input type="checkbox" class="w-4 h-4 accent-amber-400 rounded bg-slate-900 border-slate-700">
+                        <span>실행 점검 완료</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kpi" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-xs font-bold uppercase tracking-widest text-amber-400">Section 04</span>
+                <h2 class="text-3xl font-extrabold text-white">KPI 지표 &amp; 정량적 성과 목표</h2>
+                <p class="text-xs text-slate-400">매장 매출 증대와 브랜드 충성도를 견인할 주요 수치입니다.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
+                <div class="glass-card p-6 rounded-3xl border border-white/5 text-center space-y-2">
+                    <i class="fa-solid fa-cart-arrow-down text-2xl text-amber-400"></i>
+                    <p class="text-[11px] text-slate-400 font-bold uppercase tracking-wider">객단가 증대</p>
+                    <p class="text-3xl font-black text-white">+18.5%</p>
+                    <p class="text-[11px] text-slate-400">행사 연계 구매 유도</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-3xl border border-white/5 text-center space-y-2">
+                    <i class="fa-solid fa-clock text-2xl text-emerald-400"></i>
+                    <p class="text-[11px] text-slate-400 font-bold uppercase tracking-wider">체류 시간</p>
+                    <p class="text-3xl font-black text-emerald-400">42분 ➔ 68분</p>
+                    <p class="text-[11px] text-slate-400">평균 +26분 확장</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-3xl border border-white/5 text-center space-y-2">
+                    <i class="fa-solid fa-face-smile text-2xl text-amber-300"></i>
+                    <p class="text-[11px] text-slate-400 font-bold uppercase tracking-wider">다문화 고객 친밀도</p>
+                    <p class="text-3xl font-black text-amber-300">88% 이상</p>
+                    <p class="text-[11px] text-slate-400">긍정 브랜드 경험 형성</p>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-3xl border border-white/10 overflow-hidden shadow-2xl">
+                <div class="px-6 py-4 border-b border-white/10 flex items-center justify-between">
+                    <span class="font-bold text-xs text-white uppercase tracking-wider">영역별 세부 측정 가이드</span>
+                    <span class="text-[10px] text-slate-400 font-mono">Goreit x Emart KPI</span>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs text-slate-300">
+                        <thead class="bg-white/5 text-slate-400 font-bold text-[11px] uppercase border-b border-white/5">
+                            <tr>
+                                <th class="py-4 px-6">측정 영역</th>
+                                <th class="py-4 px-6">핵심 지표 (KPI)</th>
+                                <th class="py-4 px-6">운영 방식</th>
+                                <th class="py-4 px-6">피드백 &amp; 개선</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-white/5">
+                            <tr class="hover:bg-white/[0.02] transition">
+                                <td class="py-4 px-6 font-bold text-white">온라인 바이럴</td>
+                                <td class="py-4 px-6 text-amber-400 font-semibold">도달수 / 저장·공유율 (4.5%+)</td>
+                                <td class="py-4 px-6">콘텐츠별 성과 주간집계</td>
+                                <td class="py-4 px-6 text-slate-400">반응 높은 카피 타깃 소구점 확대</td>
+                            </tr>
+                            <tr class="hover:bg-white/[0.02] transition">
+                                <td class="py-4 px-6 font-bold text-white">숏폼 영상</td>
+                                <td class="py-4 px-6 text-amber-400 font-semibold">조회수 (30만+) / 완청률 VTR 40%</td>
+                                <td class="py-4 px-6">플랫폼별 시청 지속 구간 측정</td>
+                                <td class="py-4 px-6 text-slate-400">이탈 구간 중심 2차 영상 재편집</td>
+                            </tr>
+                            <tr class="hover:bg-white/[0.02] transition">
+                                <td class="py-4 px-6 font-bold text-white">오프라인 참여</td>
+                                <td class="py-4 px-6 text-amber-400 font-semibold">지도 소진율 (90%) / 완수 (65%)</td>
+                                <td class="py-4 px-6">점포·요일별 수량 모니터링</td>
+                                <td class="py-4 px-6 text-slate-400">안내판 위치 및 동선 재배치</td>
+                            </tr>
+                            <tr class="hover:bg-white/[0.02] transition">
+                                <td class="py-4 px-6 font-bold text-white">구매 전환</td>
+                                <td class="py-4 px-6 text-amber-400 font-semibold">객단가 (+18.5%) / 행사 매출</td>
+                                <td class="py-4 px-6">행사 전후 POS 데이터 비교</td>
+                                <td class="py-4 px-6 text-slate-400">주간 레시피 식재료 큐레이션 반영</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-950 border-t border-white/5 py-10 text-xs text-slate-500 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <div class="flex items-center justify-center gap-2">
+                <span class="bg-amber-400/10 border border-amber-400/20 text-amber-300 font-bold px-2.5 py-1 rounded-md text-[10px]">고래잇 × e-mart</span>
+                <span class="text-slate-300 font-semibold">보물찾기 홍보 실행 기획서</span>
+            </div>
+            <p class="text-slate-500 max-w-xl mx-auto leading-relaxed text-[11px]">
+                본 기획서는 오프라인 매장 방문 고객의 다이내믹 경험 창출 및 언어 장벽 완화를 지원하기 위해 제작된 통합 PR 전략 시안입니다.
+            </p>
+            <p class="text-slate-600 font-mono text-[10px]">© 2026 Goreit x Emart Treasure Hunt Campaign All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Tab Switcher Logic
+        function switchTab(tabName) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(el => el.classList.add('hidden'));
+
+            const targetContent = document.getElementById('tab-' + tabName);
+            if (targetContent) {
+                targetContent.classList.remove('hidden');
+            }
+
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('gold-gradient-bg', 'text-slate-950', 'font-bold', 'shadow-lg');
+                btn.classList.add('text-slate-400', 'font-medium');
+            });
+
+            const activeBtn = document.getElementById('tab-btn-' + tabName);
+            if (activeBtn) {
+                activeBtn.classList.add('gold-gradient-bg', 'text-slate-950', 'font-bold', 'shadow-lg');
+                activeBtn.classList.remove('text-slate-400', 'font-medium');
+            }
+        }
+
+        // Quest Simulator Logic
+        let selectedIngredients = new Set();
+
+        function toggleIngredient(element, itemKey) {
+            if (selectedIngredients.has(itemKey)) {
+                selectedIngredients.delete(itemKey);
+                element.classList.remove('border-amber-400', 'bg-slate-800/90', 'ring-2', 'ring-amber-400/50');
+                element.classList.add('border-white/10', 'bg-slate-900/80');
+            } else {
+                selectedIngredients.add(itemKey);
+                element.classList.add('border-amber-400', 'bg-slate-800/90', 'ring-2', 'ring-amber-400/50');
+                element.classList.remove('border-white/10', 'bg-slate-900/80');
+            }
+
+            document.getElementById('quest-count').textContent = selectedIngredients.size + ' / 4';
+
+            const rewardBox = document.getElementById('reward-box');
+            if (selectedIngredients.size === 4) {
+                rewardBox.classList.remove('hidden');
+            } else {
+                rewardBox.classList.add('hidden');
+            }
+        }
+
+        function resetQuest() {
+            selectedIngredients.clear();
+            document.getElementById('quest-count').textContent = '0 / 4';
+            document.getElementById('reward-box').classList.add('hidden');
+            
+            const cards = document.querySelectorAll('.ingredient-card');
+            cards.forEach(card => {
+                card.classList.remove('border-amber-400', 'bg-slate-800/90', 'ring-2', 'ring-amber-400/50');
+                card.classList.add('border-white/10', 'bg-slate-900/80');
+            });
+        }
+
+        // Checklist Filter Logic
+        function filterChecklist(category, btnElement) {
+            const items = document.querySelectorAll('.check-item');
+            items.forEach(item => {
+                if (category === 'all') {
+                    item.classList.remove('hidden');
+                } else {
+                    if (item.classList.contains(category)) {
+                        item.classList.remove('hidden');
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                }
+            });
+
+            const filterBtns = document.querySelectorAll('.check-filter-btn');
+            filterBtns.forEach(btn => {
+                btn.classList.remove('gold-gradient-bg', 'text-slate-950', 'font-bold', 'shadow-md');
+                btn.classList.add('glass-card', 'text-slate-300', 'font-medium');
+            });
+
+            btnElement.classList.add('gold-gradient-bg', 'text-slate-950', 'font-bold', 'shadow-md');
+            btnElement.classList.remove('glass-card', 'text-slate-300', 'font-medium');
+        }
+    </script>
+</body>
+</html>
